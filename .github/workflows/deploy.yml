@@ -1,0 +1,23 @@
+name: Despliegue a surge.sh
+
+on:
+  push:
+    branches:
+      - master  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: npm install  
+
+    - name: Deploy to Surge
+      env:
+        SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+      run: |
+        npx surge ./src yohendry-primer.surge.sh --token $SURGE_TOKEN  
