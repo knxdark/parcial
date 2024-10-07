@@ -1,0 +1,10 @@
+# Ignorar directorio de dependencias
+node_modules/
+
+# Ignorar archivos de log de npm
+npm-debug.log
+yarn-error.log
+
+# Ignorar el archivo lock
+package-lock.json
+
